@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+
+set skillId [lindex $argv 0]
+spawn ask init --hosted-skill-id $skillId
+expect "Please type in your folder name for the skill project"
+send "step-to-jeff-alexa\n"
+expect "Step To Jeff successfully initialized."

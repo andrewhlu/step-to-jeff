@@ -31,18 +31,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    # # Setup action to inject private Git credentials
-    # # https://github.com/marketplace/actions/setup-git-credentials
-    # - name: Setup AWS Git Credentials
-    #   uses: fusion-engineering/setup-git-credentials@v2.0.1
-    #   with:
-    #     credentials: ${{ secrets.AWS_GIT_CREDENTIAL }}
-
-    # - name: Add AWS CodeCommit repo
-    #   run: |
-    #     git remote add alexa ${{ secrets.AWS_GIT_URL }}
-    #     git push alexa master
-
     - name: Install expect
       run: |
         sudo apt-get install expect

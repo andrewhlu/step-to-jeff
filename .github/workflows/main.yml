@@ -58,4 +58,5 @@ jobs:
         git pull github master --ff-only
         git push origin master
         git checkout dev
+        git merge master
         git push origin dev

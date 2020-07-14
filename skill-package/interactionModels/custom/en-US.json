@@ -16,16 +16,15 @@
           "samples": []
         },
         {
-          "name": "HelloWorldIntent",
+          "name": "ItemsToCompleteIntent",
           "slots": [],
           "samples": [
-            "hello",
-            "how are you",
-            "say hi world",
-            "say hi",
-            "hi",
-            "say hello world",
-            "say hello"
+            "upcoming",
+            "due date",
+            "due dates",
+            "due",
+            "dates",
+            "to do"
           ]
         },
         {

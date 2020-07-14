@@ -8,7 +8,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hi, you can say Hello or Help. Which would you like to try?';
+        const speakOutput = 'Hi, you can ask about your upcoming due dates or other Amazon related questions. Which would you like to try?';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -18,10 +18,10 @@ const LaunchRequestHandler = {
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ItemsToCompleteIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'uwu, owo, nuzzle wuzzle blush!';
+        const speakOutput = 'You have to say hi to Jeff Bezos due in 2 days. You can ask me to send a link to your phone.';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -34,7 +34,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = 'You can ask about your upcoming due dates or other Amazon related questions! How can I help?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -49,7 +49,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = 'Goodbye! Come back again to be one step closer to Jeff Bezos.';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();

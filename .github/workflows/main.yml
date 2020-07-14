@@ -57,3 +57,5 @@ jobs:
         git remote add github $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git -f
         git pull github master --ff-only
         git push origin master
+        git checkout dev
+        git push origin dev

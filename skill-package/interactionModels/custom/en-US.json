@@ -16,6 +16,14 @@
           "samples": []
         },
         {
+          "name": "LoginToGmailIntent",
+          "slots": [],
+          "samples": [
+            "log in",
+            "sign in"
+          ]
+        },
+        {
           "name": "ItemsToCompleteIntent",
           "slots": [],
           "samples": [

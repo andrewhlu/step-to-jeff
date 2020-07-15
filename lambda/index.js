@@ -15,7 +15,7 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
-const LoginToGmailHandler = {
+const LoginToGmailIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getRequestType(handlerInput.requestEnvelope) === 'LoginToGmailIntent';
@@ -28,8 +28,8 @@ const LoginToGmailHandler = {
             return handlerInput.responseBuilder.speak(text).withLinkAccountCard().getResponse();
         }
         else {
-            let text = "We found an account, congratulations!";
-            return handlerInput.responseBuilder.speak(text);
+            let text = "We found an account. Congratulations!";
+            return handlerInput.responseBuilder.speak(text).getResponse();
         }
     }
 };

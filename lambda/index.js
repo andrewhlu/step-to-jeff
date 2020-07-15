@@ -18,7 +18,7 @@ const LaunchRequestHandler = {
 const LoginToGmailIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getRequestType(handlerInput.requestEnvelope) === 'LoginToGmailIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LoginToGmailIntent';
     },
     handle(handlerInput) {
         let accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;

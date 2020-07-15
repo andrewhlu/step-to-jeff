@@ -15,6 +15,24 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
+const LoginToGmailHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getRequestType(handlerInput.requestEnvelope) === 'LoginToGmailIntent';
+    },
+    handle(handlerInput) {
+        let accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
+        if(accessToken === undefined) {
+            // No token was found, prompt to sign in to account
+            let text = "We'll need permission to read your onboarding emails to use this app. Please use the Alexa app to link the Gmail account that you used when applying to Amazon.";
+            return handlerInput.responseBuilder.speak(text).withLinkAccountCard().getResponse();
+        }
+        else {
+            let text = "We found an account, congratulations!";
+            return handlerInput.responseBuilder.speak(text);
+        }
+    }
+};
 const ItemsToCompleteIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'

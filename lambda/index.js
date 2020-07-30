@@ -2,17 +2,34 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
+const path = require('path');
+const { sayHi, searchForEmails, isSignedIn } = require(path.resolve( __dirname, "./gmail.js" ));
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
-    handle(handlerInput) {
-        const speakOutput = 'Hi, you can ask about your upcoming due dates or other Amazon related questions. Which would you like to try?';
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
+    async handle(handlerInput) {
+        console.log("Start of new skill invocation!");
+        // First, check if the user is signed in
+        if(isSignedIn(handlerInput)) {
+            // User is signed in!
+            await searchForEmails(handlerInput);
+            console.log("finished");
+            
+            const signedIn = "Welcome back to Step to Jeff. You can ask about your upcoming onboarding tasks or Amazon's company culture. Which would you like to learn about?";
+            return handlerInput.responseBuilder
+                .speak(signedIn)
+                .withSimpleCard(handlerInput.requestEnvelope.context.System.user.accessToken)
+                .reprompt(signedIn)
+                .getResponse();
+        }
+        else {
+            // User is not signed in, tell them they need to sign in to a Gmail account
+            // const notSignedInText = "You are not signed in.";
+            const notSignedInText = "Welcome to Step to Jeff, and congratulations on accepting your internship offer with Amazon! The Amazon Student Programs team is excited to have you join, and we're making many preparations for your arrival. In the coming months, we will email you items that you will need to complete. This Alexa Skill can help you keep track of all of those items, as well as help you learn about Amazon's peculiar culture. To make this happen, you'll need to sign in to the Gmail account that you used when you applied to Amazon. We've sent a card to your Alexa app to sign in. Please sign in, and then ask me to step to jeff again!";
+            return handlerInput.responseBuilder.speak(notSignedInText).withLinkAccountCard().getResponse();
+        }
     }
 };
 const LoginToGmailIntentHandler = {
@@ -29,7 +46,7 @@ const LoginToGmailIntentHandler = {
         }
         else {
             let text = "We found an account. Congratulations!";
-            return handlerInput.responseBuilder.speak(text).getResponse();
+            return handlerInput.responseBuilder.speak(text).withSimpleCard(sayHi(accessToken)).getResponse();
         }
     }
 };

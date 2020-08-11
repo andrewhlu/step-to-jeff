@@ -41,7 +41,7 @@ Step to Jeff is an Alexa Skill designed for incoming Amazon interns. This skill 
         <div class="hole"></div>
         <img src="https://andrewhlu.com/images/members/elliechoi.jpeg">
         <p class="name">Ellie Choi</p>
-        <p class="title">UX Design Intern, Twich Prime</p>
+        <p class="title">UX Design Intern, Prime Gaming</p>
     </a>
 </div>
 
@@ -69,7 +69,7 @@ Step to Jeff is a reminder and educational Alexa Skill that aims to engage and i
     src: url("fonts/AmazonEmber_Rg.ttf") format("opentype");
 }
 
-body {
+.markdown-body {
     font-family: 'Ember', sans-serif;
 }
 
@@ -82,7 +82,7 @@ body {
 .flex-container > a {
   background-color: #B8E1EB;
   color: #000;
-  width: 150px;
+  width: 170px;
   margin: 10px;
   padding: 10px;
   border-radius: 15px;

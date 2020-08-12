@@ -73,6 +73,10 @@ Step to Jeff is a reminder and educational Alexa Skill that aims to engage and i
     font-family: 'Ember', sans-serif;
 }
 
+.markdown-body h1:first-of-type {
+    display: none;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;

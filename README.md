@@ -47,21 +47,49 @@ Step to Jeff is an Alexa Skill designed for incoming Amazon interns. This skill 
 
 ## Why Step to Jeff?
 
-As interns, we understand the tremendous energy and nerve that is eager to immediately take hold of the opportunity given to us as curious thinkers to help build the future of Amazon and its customers. From the minute us restless interns are hired, there is an outburst of questions raised:
+From the moment interns are hired and accept their offer letter, interns are consistently wondering what's next, and are eager to learn more about their team and their project. However, many interns, including us, shared similar pain points when stuck in the waiting zone between their hiring date and their first day at work, often asking the same questions:
 
-* How do we prepare for our internship?
-* What are the expectations?
-* Is there anything I can do *right now* to become the best intern there possibly is?
+* What are my onboarding tasks, and how do I do them?
+* How do I know whether I have completed my onboarding tasks?
+* How do I know a certain Amazon onboarding task / email is legitimate?
+* Is there anything I can do / learn *right now* to better prepare myself as an incoming intern?
 
-With over thousands of new incoming interns, many pose similar pain points when stuck in the waiting zone between their hiring date and their first day at work. While there is a network of Amazon platforms to provide resources, **there is no immediate relief for these interns to find out about their questions regarding employment and assist them in keeping track of their pre-onboarding timeline**. Interns often found themselves frustrated over lost emails, lack of direction, and confusion over whether or not an important date was coming up. We found inspiration in their struggle, and asked ourselves:
+There are a network of Amazon resources trying to provide help, but without a single source of truth, it can be hard for interns to keep up with the pre-onboarding timeline, ask questions regarding employment, and learn more about Amazon's culture. Interns often found themselves frustrated over lost emails, lack of direction, and confusion over whether an important date was coming up. The problem is made worse when interns realize that emails are the only method of communication in the pre-onboarding stage, with emails coming from a variety of sources, including third parties.
+
+We found inspiration in their struggle, and asked ourselves:
 
 >How might we build an interactive experience that allows interns to overcome due date anxiety over the duration of their pre-onboarding, and fill the gaps of restless waiting with delightful learning experiences?
 
-## Solution
+## The Solution
 
 With Step to Jeff, we aim to connect interns to that feeling of inclusivity here at Amazon and facilitate communication, rapid exchange of information, and amicable support during the intricate pre-onboarding experience phase through an interactive voice experience.
 
-Step to Jeff is a reminder and educational Alexa Skill that aims to engage and inform interns before they have even stepped foot into Day 1. The skill is divided into tasks to fulfill, consisting of required assignments and/or Amazon culture education. These steps are based off of each intern’s personal timeline in their pre-onboarding process, and they are prompted to fulfill their goals as well as take initiative to immerse themselves in legal and educational resources. Through Step to Jeff, interns will be able to immediately understand their prospective goals. 
+Step to Jeff is a reminder and educational Alexa Skill that aims to engage and inform interns before they have even stepped foot into Day 1. The skill is divided into tasks to fulfill, consisting of required assignments and/or Amazon culture education. These steps are based off of each intern’s personal timeline in their pre-onboarding process, and they are prompted to fulfill their goals, as well as take initiative, to immerse themselves in legal and educational resources. Through Step to Jeff, interns will be able to immediately understand their prospective goals.
+
+## How does it work?
+
+Step to Jeff utilizes an intern's Gmail account to determine where an intern is in the onboarding process. When an intern sets up the skill by providing us read access to their accounts, Step to Jeff keeps the intern updated by searching the user's account for the relevant onboarding emails, notifying interns when a new email arrives and requires action.
+
+Since this skill was developed by interns (and for interns), we tailored the skill to the emails that received as interns. Below is the full list of emails that we currently search for:
+
+* Offer Letter
+* Offer Accepted and Survey
+* Offer Survey Confirmation
+* Background Check
+* Information Session
+* Information Session Confirmation
+* Manager Introduction
+* AWS Educate Course
+* New Hire Documents
+* Embark
+* Equipment Delivery
+* I-9 Verification Section 1
+* I-9 Verification Section 1 Completion
+* New Hire Orientation Info
+
+This list of tasks is turned into an interactive checklist that can automatically advance itself and mark items as complete (for tasks that have a confirmation email), allowing the intern to keep up with the latest information with minimal effort. Each list item is also populated with the relevant information needed to copmplete it, such as access codes and links, so we can present each task in a simplified manner.
+
+
 
 <style>
 @font-face {
